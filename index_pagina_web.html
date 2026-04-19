@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miguel Angel Pinturas – Mantenimiento y Reformas | Málaga, Marbella, Estepona</title>
+<meta name="description" content="Más de 30 años de experiencia en pintura, impermeabilizaciones y reformas en Málaga, Estepona y Marbella. Presupuesto sin compromiso. Tel: 679 77 54 60">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#0a1628;color:#f0e6d0;line-height:1.7;}
+  a{text-decoration:none;color:inherit;}
+
+  /* NAV */
+  nav{background:#060f1e;border-bottom:1px solid #b8941f;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:200;}
+  .nav-logo{font-size:17px;font-weight:700;color:#c9a84c;letter-spacing:1px;}
+  .nav-logo span{color:#f0e6d0;font-size:11px;display:block;font-weight:400;letter-spacing:2px;}
+  .nav-links{display:flex;gap:1.5rem;}
+  .nav-links a{color:#d0c4a8;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+  .nav-links a:hover{color:#c9a84c;}
+  .nav-tel{background:#c9a84c;color:#0a1628;padding:8px 16px;border-radius:3px;font-size:13px;font-weight:700;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+  .hamburger span{display:block;width:24px;height:2px;background:#c9a84c;}
+  .mobile-menu{display:none;position:fixed;inset:0;background:#060f1e;z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:20px;color:#f0e6d0;letter-spacing:2px;text-transform:uppercase;}
+  .mobile-menu a:hover{color:#c9a84c;}
+  .mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:1px solid #c9a84c;color:#c9a84c;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;}
+
+  @media(max-width:700px){.nav-links,.nav-tel{display:none;}.hamburger{display:flex;}}
+
+  /* HERO */
+  .hero{background:#0a1628;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(201,168,76,.03) 40px,rgba(201,168,76,.03) 41px);}
+  .hero-inner{position:relative;z-index:1;max-width:680px;}
+  .hero-badge{display:inline-block;border:1px solid #c9a84c;color:#c9a84c;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 20px;border-radius:20px;margin-bottom:1.5rem;}
+  .hero h1{font-size:40px;font-weight:700;color:#f0e6d0;line-height:1.2;margin-bottom:.5rem;}
+  .hero h1 em{color:#c9a84c;font-style:normal;}
+  .hero-sub{font-size:15px;color:#7a9bb0;letter-spacing:2px;margin-bottom:.75rem;}
+  .hero-desc{font-size:15px;color:#b0a898;max-width:540px;margin:0 auto 2rem;line-height:1.8;}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn-gold{background:#c9a84c;color:#0a1628;padding:14px 32px;border-radius:4px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;display:inline-block;transition:opacity .2s;}
+  .btn-gold:hover{opacity:.9;}
+  .btn-outline{background:transparent;color:#c9a84c;padding:13px 32px;border-radius:4px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:1px solid #c9a84c;cursor:pointer;display:inline-block;transition:all .2s;}
+  .btn-outline:hover{background:#c9a84c;color:#0a1628;}
+
+  /* STATS */
+  .stats{background:#c9a84c;padding:1.5rem 2rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;}
+  .stat-item{text-align:center;}
+  .stat-num{font-size:28px;font-weight:700;color:#0a1628;}
+  .stat-label{font-size:11px;color:#3a2800;letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
+
+  /* SECTIONS */
+  .sec{padding:4rem 2rem;max-width:960px;margin:0 auto;}
+  .sec-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;margin-bottom:.5rem;}
+  .sec-h{font-size:26px;font-weight:700;color:#f0e6d0;padding-bottom:1rem;border-bottom:1px solid rgba(201,168,76,.3);margin-bottom:2rem;}
+  .bg2{background:#0f1929;}
+
+  /* SERVICIOS */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.15);}
+  .srv{background:#0f1e35;padding:1.75rem 1.25rem;transition:background .2s;}
+  .srv:hover{background:#14263d;}
+  .srv-icon{font-size:28px;margin-bottom:.75rem;}
+  .srv h3{font-size:15px;font-weight:600;color:#c9a84c;margin-bottom:.4rem;}
+  .srv p{font-size:13px;color:#8a9bb0;line-height:1.6;}
+
+  /* POR QUÉ */
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;}
+  .why-item{padding:1.25rem;border:0.5px solid rgba(201,168,76,.25);border-left:3px solid #c9a84c;border-radius:0 4px 4px 0;}
+  .why-item h3{font-size:14px;font-weight:600;color:#c9a84c;margin-bottom:.4rem;}
+  .why-item p{font-size:13px;color:#8a9bb0;line-height:1.6;}
+
+  /* ZONA */
+  .zone-pills{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.25rem;}
+  .pill{padding:7px 18px;border:1px solid #c9a84c;color:#c9a84c;border-radius:20px;font-size:13px;letter-spacing:1px;}
+
+  /* GALERÍA */
+  .tabs{display:flex;gap:0;border-bottom:1px solid rgba(201,168,76,.2);overflow-x:auto;margin-bottom:1.5rem;}
+  .tab{padding:.7rem 1.1rem;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#8a9bb0;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;transition:all .2s;}
+  .tab.active,.tab:hover{color:#c9a84c;border-bottom-color:#c9a84c;}
+  .tab-content{display:none;}
+  .tab-content.active{display:block;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+  @media(max-width:500px){.grid{grid-template-columns:repeat(2,1fr);}}
+  .gi{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#0f1e35;}
+  .gi.wide{grid-column:span 2;aspect-ratio:2/1;}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+  .gi:hover img{transform:scale(1.05);}
+  .ov{position:absolute;inset:0;background:rgba(10,22,40,.75);display:flex;flex-direction:column;justify-content:flex-end;padding:.75rem;opacity:0;transition:opacity .3s;}
+  .gi:hover .ov{opacity:1;}
+  .ov-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;margin-bottom:3px;}
+  .ov-txt{font-size:12px;font-weight:600;color:#f0e6d0;line-height:1.4;}
+
+  /* PASOS PISCINA */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+  .step{background:#0f1e35;border:0.5px solid rgba(201,168,76,.2);overflow:hidden;}
+  .step img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+  .step-body{padding:.75rem 1rem;}
+  .step-num{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;margin-bottom:3px;}
+  .step-title{font-size:14px;font-weight:600;color:#f0e6d0;margin-bottom:3px;}
+  .step-desc{font-size:12px;color:#8a9bb0;line-height:1.5;}
+
+  /* CTA STRIP */
+  .cta{background:#c9a84c;padding:3rem 2rem;text-align:center;}
+  .cta h2{font-size:22px;font-weight:700;color:#0a1628;margin-bottom:.5rem;}
+  .cta p{font-size:15px;color:#3a2800;margin-bottom:1.25rem;}
+  .btn-dark{background:#0a1628;color:#c9a84c;padding:14px 36px;border-radius:4px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;display:inline-block;}
+
+  /* CONTACTO */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+  @media(max-width:650px){.contact-grid{grid-template-columns:1fr;}}
+  .info-card{background:#0f1e35;border:0.5px solid rgba(201,168,76,.2);border-left:3px solid #c9a84c;padding:1rem 1.25rem;margin-bottom:1rem;}
+  .info-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;margin-bottom:5px;}
+  .info-value{font-size:15px;color:#f0e6d0;}
+  .trust-box{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);padding:1.25rem;margin-bottom:1rem;}
+  .trust-box p{font-size:13px;color:#b0a898;line-height:1.7;font-style:italic;}
+  .trust-box strong{color:#c9a84c;font-style:normal;}
+  .quick-btns{display:flex;flex-direction:column;gap:.75rem;}
+  .btn-wa{background:#25D366;color:#fff;padding:13px 20px;border-radius:4px;font-size:14px;font-weight:600;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;justify-content:center;}
+  .btn-call{background:transparent;color:#c9a84c;padding:12px 20px;border-radius:4px;font-size:14px;font-weight:600;border:1px solid #c9a84c;cursor:pointer;display:flex;align-items:center;gap:10px;justify-content:center;}
+  .btn-email{background:transparent;color:#8a9bb0;padding:12px 20px;border-radius:4px;font-size:14px;font-weight:600;border:1px solid rgba(138,155,176,.4);cursor:pointer;display:flex;align-items:center;gap:10px;justify-content:center;}
+  .form-box{background:#0f1e35;border:0.5px solid rgba(201,168,76,.2);padding:1.75rem;}
+  .form-title{font-size:13px;font-weight:600;color:#c9a84c;margin-bottom:1.25rem;letter-spacing:1px;text-transform:uppercase;}
+  .field{margin-bottom:1rem;}
+  .field label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a9bb0;margin-bottom:5px;}
+  .field input,.field select,.field textarea{width:100%;background:#0a1628;border:0.5px solid rgba(201,168,76,.3);color:#f0e6d0;padding:10px 12px;font-size:14px;font-family:inherit;border-radius:2px;outline:none;transition:border-color .2s;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:#c9a84c;}
+  .field textarea{resize:vertical;min-height:80px;}
+  .field select option{background:#0a1628;}
+  .btn-submit{width:100%;background:#c9a84c;color:#0a1628;padding:14px;border:none;border-radius:4px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:.5rem;}
+  .success-msg{display:none;background:rgba(201,168,76,.1);border:1px solid #c9a84c;padding:1rem;text-align:center;color:#c9a84c;font-size:14px;margin-top:1rem;border-radius:2px;}
+
+  /* HORARIO STRIP */
+  .hor-strip{background:#c9a84c;padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;}
+  .hor-item{text-align:center;}
+  .hor-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#3a2800;}
+  .hor-value{font-size:14px;font-weight:700;color:#0a1628;}
+
+  /* FOOTER */
+  footer{background:#060f1e;padding:1.5rem 2rem;text-align:center;border-top:1px solid rgba(201,168,76,.15);}
+  footer p{font-size:12px;color:#556;letter-spacing:1px;}
+  footer strong{color:#c9a84c;}
+
+  /* LIGHTBOX */
+  .lb{display:none;position:fixed;inset:0;background:rgba(5,10,20,.97);z-index:999;align-items:center;justify-content:center;flex-direction:column;}
+  .lb.open{display:flex;}
+  .lb img{max-width:92vw;max-height:82vh;object-fit:contain;border:1px solid rgba(201,168,76,.2);}
+  .lb-cap{margin-top:.75rem;font-size:12px;color:#c9a84c;letter-spacing:2px;text-transform:uppercase;}
+  .lb-close{position:absolute;top:1rem;right:1rem;background:none;border:1px solid #c9a84c;color:#c9a84c;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+
+  /* WA FLOAT */
+  .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:150;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .2s;}
+  .wa-float:hover{transform:scale(1.1);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MIGUEL ANGEL PINTURAS<span>Mantenimiento y Reformas</span></div>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#zona">Zona</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a class="nav-tel" href="tel:679775460">679 77 54 60</a>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="#servicios" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Servicios</a>
+  <a href="#galeria" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Galería</a>
+  <a href="#zona" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Zona</a>
+  <a href="#contacto" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Contacto</a>
+  <a href="tel:679775460" class="btn-gold">679 77 54 60</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Más de 30 años de experiencia</div>
+    <h1>Pinturas · Reformas<br><em>Mantenimiento</em></h1>
+    <p class="hero-sub">Málaga · Estepona · Marbella</p>
+    <p class="hero-desc">Servicio integral para viviendas y comunidades. Desde pequeñas reparaciones hasta reformas completas, coordinando todos los gremios necesarios.</p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="tel:679775460">Llamar ahora</a>
+      <a class="btn-outline" href="#contacto">Pedir presupuesto</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item"><div class="stat-num">+30</div><div class="stat-label">Años de experiencia</div></div>
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Provincias</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Presupuesto gratis</div></div>
+</div>
+
+<!-- SERVICIOS -->
+<div class="bg2">
+<div class="sec" id="servicios">
+  <p class="sec-tag">Lo que hacemos</p>
+  <h2 class="sec-h">Nuestros servicios</h2>
+  <div class="services-grid">
+    <div class="srv"><div class="srv-icon">🖌️</div><h3>Pintura</h3><p>Interior y exterior para viviendas, locales y comunidades. Acabados de calidad.</p></div>
+    <div class="srv"><div class="srv-icon">🏗️</div><h3>Impermeabilizaciones</h3><p>Cubiertas, terrazas, tejados y piscinas. Soluciones duraderas contra humedades.</p></div>
+    <div class="srv"><div class="srv-icon">🔨</div><h3>Reformas integrales</h3><p>Coordinamos todos los gremios: electricidad, fontanería, carpintería y más.</p></div>
+    <div class="srv"><div class="srv-icon">🏢</div><h3>Comunidades</h3><p>Mantenimiento, limpieza de zonas comunes y abrillantado de suelos.</p></div>
+    <div class="srv"><div class="srv-icon">🎨</div><h3>Empapelados</h3><p>Papel pintado, papel mural y vinílico. Todo tipo de acabados decorativos.</p></div>
+    <div class="srv"><div class="srv-icon">🏊</div><h3>Piscinas</h3><p>Renovación completa: picado, impermeabilización, gresite y lechada.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- POR QUÉ -->
+<div>
+<div class="sec">
+  <p class="sec-tag">Por qué elegirnos</p>
+  <h2 class="sec-h">Seriedad, rapidez y calidad</h2>
+  <div class="why-grid">
+    <div class="why-item"><h3>Experiencia probada</h3><p>Más de 30 años trabajando en la Costa del Sol con clientes particulares y comunidades.</p></div>
+    <div class="why-item"><h3>Servicio integral</h3><p>Un solo interlocutor para toda la reforma. Coordinamos todos los gremios necesarios.</p></div>
+    <div class="why-item"><h3>Presupuesto sin compromiso</h3><p>Te visitamos, valoramos el trabajo y te damos precio sin ningún coste.</p></div>
+    <div class="why-item"><h3>Por recomendación</h3><p>Más de 30 años trabajando de cliente en cliente. Cada trabajo es una referencia.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- GALERÍA -->
+<div class="bg2">
+<div class="sec" id="galeria">
+  <p class="sec-tag">Trabajos realizados</p>
+  <h2 class="sec-h">Galería de proyectos</h2>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('emp',this)">Empapelados</button>
+    <button class="tab" onclick="showTab('tej',this)">Tejados</button>
+    <button class="tab" onclick="showTab('ext',this)">Exterior</button>
+    <button class="tab" onclick="showTab('pis',this)">Piscina paso a paso</button>
+  </div>
+
+  <div class="tab-content active" id="tab-emp">
+    <div class="grid">
+      <div class="gi wide" onclick="lb('https://raw.githubusercontent.com/migra71pinturas-pixel/reformas_miguel_ramos/main/fotos/foto_pared_empapelada_2.jpeg','Papel floral · habitación doble')"><img src="fotos/foto_pared_empapelada_2.jpeg" alt="Empapelado floral"><div class="ov"><span class="ov-tag">Empapelado</span><span class="ov-txt">Papel floral · habitación doble</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_pared_empapelada_3.jpeg','Papel floral verde')"><img src="fotos/foto_pared_empapelada_3.jpeg" alt="Empapelado verde"><div class="ov"><span class="ov-tag">Empapelado</span><span class="ov-txt">Papel floral verde</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_de_pared_empapelada.jpeg','Papel de rayas')"><img src="fotos/foto_de_pared_empapelada.jpeg" alt="Rayas"><div class="ov"><span class="ov-tag">Empapelado</span><span class="ov-txt">Papel de rayas · dormitorio</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_pared_empapelada_4.jpeg','Papel botánico')"><img src="fotos/foto_pared_empapelada_4.jpeg" alt="Botánico"><div class="ov"><span class="ov-tag">Empapelado</span><span class="ov-txt">Papel botánico multicolor</span></div></div>
+      <div class="gi wide" onclick="lb('fotos/foto_despues_de_empapelarse.jpeg','Salón empapelado oscuro')"><img src="fotos/foto_despues_de_empapelarse.jpeg" alt="Salón oscuro"><div class="ov"><span class="ov-tag">Empapelado</span><span class="ov-txt">Papel oscuro de rayas · salón</span></div></div>
+      <div class="gi wide" onclick="lb('fotos/foto_pared_empapelada_dibujos_numerados.jpeg','Papel mural tropical')"><img src="fotos/foto_pared_empapelada_dibujos_numerados.jpeg" alt="Tropical"><div class="ov"><span class="ov-tag">Mural</span><span class="ov-txt">Papel mural tropical · instalación a medida</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_mesa_negra_pintada.jpeg','Mesa lacada en negro')"><img src="fotos/foto_mesa_negra_pintada.jpeg" alt="Mesa negra"><div class="ov"><span class="ov-tag">Pintura muebles</span><span class="ov-txt">Mesa lacada en negro · antes/después</span></div></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-tej">
+    <div class="grid">
+      <div class="gi" onclick="lb('fotos/foto_impermehabilizacion_de_tejado.jpeg','Impermeabilización tejado')"><img src="fotos/foto_impermehabilizacion_de_tejado.jpeg" alt="Tejado"><div class="ov"><span class="ov-tag">Impermeabilización</span><span class="ov-txt">Aplicación de membrana impermeabilizante</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_tejado_rematado_sin_fino.jpeg','Tejado sin fino')"><img src="fotos/foto_tejado_rematado_sin_fino.jpeg" alt="Sin fino"><div class="ov"><span class="ov-tag">Tejado</span><span class="ov-txt">Remate de alero · sin fino</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_tejado_rematado_con_fino.jpeg','Tejado con fino')"><img src="fotos/foto_tejado_rematado_con_fino.jpeg" alt="Con fino"><div class="ov"><span class="ov-tag">Tejado</span><span class="ov-txt">Remate con fino · listo para pintar</span></div></div>
+      <div class="gi wide" onclick="lb('fotos/foto_tejado_rematado_y_pintado_el_despues.jpeg','Tejado terminado')"><img src="fotos/foto_tejado_rematado_y_pintado_el_despues.jpeg" alt="Terminado"><div class="ov"><span class="ov-tag">Resultado final</span><span class="ov-txt">Tejado rematado y pintado · impecable</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_tejado_rematado_y_pintado.jpeg','Tejado pintado')"><img src="fotos/foto_tejado_rematado_y_pintado.jpeg" alt="Pintado"><div class="ov"><span class="ov-tag">Resultado final</span><span class="ov-txt">Tejado pintado en blanco</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_grua_elevadora_con_cesta.jpeg','Grúa elevadora')"><img src="fotos/foto_grua_elevadora_con_cesta.jpeg" alt="Grúa"><div class="ov"><span class="ov-tag">Medios propios</span><span class="ov-txt">Grúa elevadora para trabajos en altura</span></div></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-ext">
+    <div class="grid">
+      <div class="gi wide" onclick="lb('fotos/foto_de_andamio_preparado_para_hacer_pergolas.jpeg','Pérgola frente al mar')"><img src="fotos/foto_de_andamio_preparado_para_hacer_pergolas.jpeg" alt="Pérgola"><div class="ov"><span class="ov-tag">Exterior</span><span class="ov-txt">Pintado de pérgola con vistas al mar</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_posamanos_balcon_sin_pintar.jpeg','Posamanos antes')"><img src="fotos/foto_posamanos_balcon_sin_pintar.jpeg" alt="Antes"><div class="ov"><span class="ov-tag">Antes</span><span class="ov-txt">Posamanos de balcón · antes de pintar</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_posamanos_pintado_balcon.jpeg','Posamanos después')"><img src="fotos/foto_posamanos_pintado_balcon.jpeg" alt="Después"><div class="ov"><span class="ov-tag">Después</span><span class="ov-txt">Posamanos pintado · acabado brillante</span></div></div>
+      <div class="gi" onclick="lb('fotos/foto_mia_rulando_techo.jpeg','Pintura interior')"><img src="fotos/foto_mia_rulando_techo.jpeg" alt="Pintura"><div class="ov"><span class="ov-tag">Pintura</span><span class="ov-txt">Pintura de techo en vivienda</span></div></div>
+      <div class="gi wide" onclick="lb('fotos/foto_salon_suelo_tapado_preparado_para_pintar.jpeg','Preparación profesional')"><img src="fotos/foto_salon_suelo_tapado_preparado_para_pintar.jpeg" alt="Preparación"><div class="ov"><span class="ov-tag">Preparación</span><span class="ov-txt">Protección profesional de suelos y mobiliario</span></div></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-pis">
+    <p style="font-size:14px;color:#8a9bb0;margin-bottom:1.5rem;line-height:1.7;">Renovación completa de piscina: desde la extracción del gresite viejo, impermeabilización, instalación de nuevo gresite, lechada y acabado final.</p>
+    <div class="steps">
+      <div class="step"><img src="fotos/foto_yo_picando_piscina.jpeg" alt="Paso 1"><div class="step-body"><p class="step-num">Paso 1</p><p class="step-title">Vaciado y picado</p><p class="step-desc">Se vacía la piscina y se elimina el gresite viejo con martillo percutor.</p></div></div>
+      <div class="step"><img src="fotos/foto_piscina_impermehabilizando.jpeg" alt="Paso 2"><div class="step-body"><p class="step-num">Paso 2</p><p class="step-title">Impermeabilización</p><p class="step-desc">Aplicación de membrana impermeabilizante en toda la superficie.</p></div></div>
+      <div class="step"><img src="fotos/foto_empezando_a_poner_grafitis.jpeg" alt="Paso 3"><div class="step-body"><p class="step-num">Paso 3</p><p class="step-title">Colocación de gresite</p><p class="step-desc">Inicio de la colocación del nuevo gresite azul sobre la impermeabilización ya curada.</p></div></div>
+      <div class="step"><img src="fotos/foto_piscina_casi_terminado_los_grafitis.jpeg" alt="Paso 4"><div class="step-body"><p class="step-num">Paso 4</p><p class="step-title">Avance del gresite</p><p class="step-desc">El gresite cubre paredes y fondo. Se aprecia la cenefa decorativa.</p></div></div>
+      <div class="step"><img src="fotos/foto_piscina_lecheando.jpeg" alt="Paso 5"><div class="step-body"><p class="step-num">Paso 5</p><p class="step-title">Lechada de juntas</p><p class="step-desc">Aplicación de lechada para rellenar juntas y conseguir acabado uniforme.</p></div></div>
+      <div class="step"><img src="fotos/foto_piscina_rterminada.jpeg" alt="Paso 6"><div class="step-body"><p class="step-num">Paso 6 · Resultado final</p><p class="step-title">Piscina terminada</p><p class="step-desc">Piscina renovada con gresite azul, cenefa griega y escalón decorativo. Lista para llenar.</p></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ZONA -->
+<div>
+<div class="sec" id="zona">
+  <p class="sec-tag">Dónde trabajamos</p>
+  <h2 class="sec-h">Zona de actuación</h2>
+  <div class="zone-pills">
+    <span class="pill">Málaga</span>
+    <span class="pill">Estepona</span>
+    <span class="pill">Marbella</span>
+    <span class="pill">Nueva Andalucía</span>
+    <span class="pill">Costa del Sol</span>
+  </div>
+  <p style="font-size:14px;color:#8a9bb0;line-height:1.8;">Llevamos más de 30 años dando servicio en toda la Costa del Sol. Si tienes dudas sobre si llegamos a tu zona, llámanos y te lo confirmamos.</p>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>¿Tienes un proyecto en mente?</h2>
+  <p>Presupuesto gratuito y sin compromiso. Te llamamos en menos de 24h.</p>
+  <a class="btn-dark" href="tel:679775460">679 77 54 60</a>
+</div>
+
+<!-- CONTACTO -->
+<div class="bg2">
+<div class="sec" id="contacto">
+  <p class="sec-tag">Contacto</p>
+  <h2 class="sec-h">Pide tu presupuesto</h2>
+  <div class="hor-strip" style="margin-bottom:2rem;border-radius:4px;">
+    <div class="hor-item"><div class="hor-label">Horario</div><div class="hor-value">Lunes – Viernes · 8:00 – 19:00</div></div>
+    <div class="hor-item"><div class="hor-label">Respuesta</div><div class="hor-value">En menos de 24h</div></div>
+    <div class="hor-item"><div class="hor-label">Presupuesto</div><div class="hor-value">Gratuito y sin compromiso</div></div>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <div class="info-card"><div class="info-label">Teléfono / WhatsApp</div><div class="info-value"><a href="tel:679775460">679 77 54 60</a></div></div>
+      <div class="info-card"><div class="info-label">Email</div><div class="info-value"><a href="mailto:migra71pinturas@gmail.com">migra71pinturas@gmail.com</a></div></div>
+      <div class="info-card"><div class="info-label">Zona de trabajo</div><div class="info-value">Málaga · Estepona · Marbella</div></div>
+      <div class="trust-box"><p><strong>Más de 30 años trabajando por recomendación.</strong> Cada cliente es una referencia. Seriedad, rapidez y calidad garantizadas en cada trabajo.</p></div>
+      <div class="quick-btns">
+        <a class="btn-wa" href="https://wa.me/34679775460?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <a class="btn-call" href="tel:679775460">📞 Llamar ahora</a>
+        <a class="btn-email" href="mailto:migra71pinturas@gmail.com">✉️ Enviar email</a>
+      </div>
+    </div>
+    <div class="form-box">
+      <p class="form-title">Formulario de presupuesto</p>
+      <div class="field"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+      <div class="field"><label>Teléfono</label><input type="tel" placeholder="Tu teléfono"></div>
+      <div class="field"><label>Tipo de trabajo</label>
+        <select>
+          <option value="">Selecciona un servicio...</option>
+          <option>Pintura interior</option>
+          <option>Pintura exterior / fachada</option>
+          <option>Empapelado</option>
+          <option>Impermeabilización de tejado</option>
+          <option>Reforma integral</option>
+          <option>Mantenimiento de comunidad</option>
+          <option>Piscina</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="field"><label>Descripción</label><textarea placeholder="Cuéntanos qué necesitas, en qué zona..."></textarea></div>
+      <button class="btn-submit" onclick="document.getElementById('ok').style.display='block'">Solicitar presupuesto gratuito</button>
+      <div class="success-msg" id="ok">✓ Mensaje recibido. Te contactaremos en menos de 24h.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Miguel Angel Pinturas</strong> · Mantenimiento y Reformas · Málaga · Tel: <a href="tel:679775460" style="color:#c9a84c;">679 77 54 60</a></p>
+</footer>
+
+<!-- WA FLOTANTE -->
+<a class="wa-float" href="https://wa.me/34679775460?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" target="_blank" title="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <p class="lb-cap" id="lb-cap"></p>
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function lb(src, cap) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-cap').textContent = cap;
+  document.getElementById('lb').classList.add('open');
+}
+function closeLb() {
+  document.getElementById('lb').classList.remove('open');
+}
+</script>
+</body>
+</html>
